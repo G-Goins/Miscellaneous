@@ -93,8 +93,6 @@ if __name__ == "__main__":
     playlist_generator.create_histogram(loudness_values, f'Loudness Distribution for {genre}', 'Loudness', 'Frequency')
     playlist_generator.create_histogram(tempo_values, f'Tempo Distribution for {genre}', 'Tempo', 'Frequency')
 
-    
-
     # Generate playlist
     genre = input("Enter a genre for the playlist: ")
     playlist_name = input("Enter a name for the playlist: ")
