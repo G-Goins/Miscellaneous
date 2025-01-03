@@ -46,10 +46,18 @@ class SpotifyPlaylistGenerator:
         if not tracks:
             print(f"No tracks found in the {genre} genre with the specified criteria.")
             return
+        if not tracks:
+            print(f"No tracks found in the {genre} genre with the specified criteria.")
+            return
 
         user_id = self.sp.me()['id']
         playlist = self.sp.user_playlist_create(user_id, playlist_name, public=True)
+        user_id = self.sp.me()['id']
+        playlist = self.sp.user_playlist_create(user_id, playlist_name, public=True)
 
+        random.shuffle(tracks)
+        track_uris = [track['uri'] for track in tracks]
+        self.sp.user_playlist_add_tracks(user_id, playlist['id'], track_uris)
         random.shuffle(tracks)
         track_uris = [track['uri'] for track in tracks]
         self.sp.user_playlist_add_tracks(user_id, playlist['id'], track_uris)
